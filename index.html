@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Judy (Zuly Hein) | Creative Operations & Storyteller</title>
+  <!-- Google Fonts: Handwritten & Editorial Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Gaegu:wght@400;700&family=Patrick+Hand&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --dark-green: #0A3323;
+      --moss-green: #839958;
+      --beige: #F7F4D5;
+      --rosy-brown: #D3968C;
+      --midnight-green: #105666;
+      --paper-line: rgba(16, 86, 102, 0.12);
+      --font-hand: 'Patrick Hand', cursive;
+      --font-sketch: 'Caveat', cursive;
+      --font-serif: 'Newsreader', serif;
+      --font-sans: 'Space Grotesk', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #E8E5C4;
+      background-image: 
+        radial-gradient(#d3ceaa 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 24px 24px, 100% 100%;
+      color: var(--dark-green);
+      font-family: var(--font-hand);
+      padding: 40px 16px;
+      display: flex;
+      justify-content: center;
+      line-height: 1.6;
+    }
+
+    /* Sketchbook Page Frame */
+    .journal-canvas {
+      width: 100%;
+      max-width: 980px;
+      background-color: var(--beige);
+      border-radius: 6px;
+      box-shadow: 
+        0 1px 3px rgba(0,0,0,0.06),
+        0 15px 35px rgba(10, 51, 35, 0.15),
+        inset 0 0 80px rgba(211, 150, 140, 0.08);
+      position: relative;
+      padding: 50px 45px;
+      border: 1px solid rgba(10, 51, 35, 0.15);
+      background-image: repeating-linear-gradient(
+        transparent,
+        transparent 27px,
+        var(--paper-line) 28px
+      );
+    }
+
+    /* Tape / Sticky Note Accents */
+    .washi-tape {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 140px;
+      height: 28px;
+      background-color: rgba(211, 150, 140, 0.65);
+      border-left: 2px dashed rgba(255,255,255,0.4);
+      border-right: 2px dashed rgba(255,255,255,0.4);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    /* Header & Profile Section */
+    .header-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: center;
+      border-bottom: 2px solid var(--dark-green);
+      padding-bottom: 30px;
+      margin-bottom: 35px;
+    }
+
+    .polaroid-frame {
+      background: #FFFFFF;
+      padding: 12px 12px 24px 12px;
+      box-shadow: 2px 4px 12px rgba(0,0,0,0.12);
+      transform: rotate(-3deg);
+      border: 1px solid #e2dec0;
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+
+    .polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .polaroid-pin {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: var(--rosy-brown);
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .polaroid-frame img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .polaroid-caption {
+      text-align: center;
+      font-size: 1.15rem;
+      margin-top: 10px;
+      color: var(--midnight-green);
+      font-family: var(--font-sketch);
+      font-weight: 700;
+    }
+
+    .intro-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      background: var(--moss-green);
+      color: var(--beige);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      letter-spacing: 0.5px;
+    }
+
+    .badge.pink {
+      background: var(--rosy-brown);
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--dark-green);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-family: var(--font-sketch);
+      font-size: 1.6rem;
+      color: var(--midnight-green);
+      font-weight: 700;
+    }
+
+    .bio-text {
+      font-size: 1.15rem;
+      color: var(--dark-green);
+      margin-top: 6px;
+    }
+
+    /* Links & Buttons */
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .stamp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--dark-green);
+      border: 1.5px solid var(--dark-green);
+      padding: 4px 14px;
+      border-radius: 4px;
+      font-size: 1rem;
+      background: rgba(247, 244, 213, 0.7);
+      transition: all 0.2s ease;
+      box-shadow: 1px 2px 0px var(--dark-green);
+    }
+
+    .stamp-btn:hover {
+      background: var(--dark-green);
+      color: var(--beige);
+      transform: translate(-1px, -1px);
+      box-shadow: 2px 3px 0px var(--midnight-green);
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--dark-green);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      margin-top: 35px;
+    }
+
+    .section-title span.number {
+      font-family: var(--font-sketch);
+      background: var(--moss-green);
+      color: var(--beige);
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.2rem;
+    }
+
+    /* Portfolio Cards Grid (Journal Memo Style) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .memo-card {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(10, 51, 35, 0.2);
+      border-radius: 4px;
+      padding: 18px 20px;
+      position: relative;
+      box-shadow: 1px 3px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .memo-card:hover {
+      background: #FFFFFF;
+      transform: translateY(-3px);
+      box-shadow: 2px 6px 14px rgba(10, 51, 35, 0.1);
+    }
+
+    .memo-card::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      right: 18px;
+      width: 45px;
+      height: 12px;
+      background: rgba(131, 153, 88, 0.35);
+      transform: rotate(2deg);
+    }
+
+    .memo-tag {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--midnight-green);
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .memo-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--dark-green);
+      margin-bottom: 8px;
+    }
+
+    .memo-desc {
+      font-size: 1.05rem;
+      color: #334e3e;
+      margin-bottom: 14px;
+    }
+
+    .folder-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--midnight-green);
+      border-bottom: 1.5px solid var(--midnight-green);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .folder-link-btn:hover {
+      color: var(--rosy-brown);
+      border-color: var(--rosy-brown);
+    }
+
+    /* Experience & Skill Table */
+    .sketch-table-box {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1.5px dashed var(--dark-green);
+      padding: 22px;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+
+    .exp-item {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px dotted rgba(10, 51, 35, 0.25);
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .exp-role {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    .exp-date {
+      font-family: var(--font-sketch);
+      font-size: 1.25rem;
+      color: var(--rosy-brown);
+      font-weight: 700;
+    }
+
+    .exp-bullets {
+      list-style-type: '✦ ';
+      padding-left: 20px;
+      margin-top: 6px;
+      font-size: 1.05rem;
+    }
+
+    /* Footer Note */
+    footer {
+      margin-top: 45px;
+      text-align: center;
+      border-top: 2px solid var(--dark-green);
+      padding-top: 20px;
+      font-family: var(--font-sketch);
+      font-size: 1.4rem;
+      color: var(--midnight-green);
+    }
+
+    @media (max-width: 680px) {
+      .header-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .polaroid-frame {
+        max-width: 180px;
+        margin: 0 auto;
+      }
+      .badge-row, .contact-chips {
+        justify-content: center;
+      }
+      .journal-canvas {
+        padding: 35px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="journal-canvas">
+    <div class="washi-tape"></div>
+
+    <!-- Header Section -->
+    <header class="header-grid">
+      <div class="polaroid-frame">
+        <div class="polaroid-pin"></div>
+        <!-- Profile Picture from Image 4 -->
+        <img src="1000072092.jpg" alt="Judy Illustrated Avatar" />
+        <div class="polaroid-caption">Judy (Zuly Hein) ✦</div>
+      </div>
+
+      <div class="intro-meta">
+        <div class="badge-row">
+          <span class="badge">Operations & Admin</span>
+          <span class="badge pink">Community Manager</span>
+          <span class="badge">Visual Storyteller</span>
+        </div>
+        <h1>Zuly Hein</h1>
+        <div class="subtitle">Where operational rigor meets human-centered creativity.</div>
+        <p class="bio-text">
+          Experienced in scaling startup community workflows, managing cross-platform communication, and crafting engaging short-form video & digital product narratives.
+        </p>
+
+        <div class="contact-chips">
+          <a class="stamp-btn" href="mailto:judyjay4884@gmail.com">✉ judyjay4884@gmail.com</a>
+          <a class="stamp-btn" href="https://wa.me/959760268316" target="_blank">💬 WhatsApp</a>
+          <a class="stamp-btn" href="https://t.me/known_as_j" target="_blank">✈ Telegram (@known_as_j)</a>
+          <a class="stamp-btn" href="https://www.linkedin.com/in/whoisjudy888" target="_blank">🔗 LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Work Folders Grid Section -->
+    <section>
+      <h2 class="section-title">
+        <span class="number">01</span> Curated Projects & Creative Assets
+      </h2>
+
+      <div class="cards-grid">
+        <!-- AI Video Creation -->
+        <article class="memo-card">
+          <span class="memo-tag">Generative Media</span>
+          <h3 class="memo-title">AI Video End-to-End</h3>
+          <p class="memo-desc">Full pipeline creation leveraging generative AI models (Veo, Gemini) from prompt conception to audio sync and dynamic motion.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/drive/folders/12wO9MgFIQNt7-lqFhwDWN6AhmLNb-qGz" target="_blank">
+            Open Drive Folder ↗
+          </a>
+        </article>
+
+        <!-- Graphic Designs -->
+        <article class="memo-card">
+          <span class="memo-tag">Canva & AI Graphics</span>
+          <h3 class="memo-title">Design Collection</h3>
+          <p class="memo-desc">Promotional social posters, aesthetic layouts, and visual assets combining AI generation and bespoke Canva composition.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/drive/folders/1HPFW8W_BNls6hIhcAMy622ty0DrJCMY4" target="_blank">
+            Open Drive Folder ↗
+          </a>
+        </article>
+
+        <!-- Content & Scripts -->
+        <article class="memo-card">
+          <span class="memo-tag">Copywriting & Hooks</span>
+          <h3 class="memo-title">Content & Scripts</h3>
+          <p class="memo-desc">High-retention video scripts, marketing hooks, long-form articles, and educational bilingual content frameworks.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/drive/folders/12tcc3YgveBGqKIbAhkbxEntzk5uj68Ao" target="_blank">
+            Open Drive Folder ↗
+          </a>
+        </article>
+
+        <!-- Video Edits -->
+        <article class="memo-card">
+          <span class="memo-tag">CapCut & Post-Production</span>
+          <h3 class="memo-title">Video Edits & Reels</h3>
+          <p class="memo-desc">Short-form video edits featuring rhythm-cut transitions, captions, sound design, and retention-focused storytelling.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/drive/folders/1SOlv0AkIVLfZ6Cx0CxyGogQuJqVjBVTG" target="_blank">
+            Open Drive Folder ↗
+          </a>
+        </article>
+
+        <!-- Digital Products -->
+        <article class="memo-card">
+          <span class="memo-tag">Wellness & Publications</span>
+          <h3 class="memo-title">Digital Products</h3>
+          <p class="memo-desc">Interactive wellness journals, "Digital Detox" activity and puzzle books designed for mindful engagement.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/drive/folders/1cA91UinOrZJd9jC4-Q6tsdX06Fkd4Ngu" target="_blank">
+            Open Drive Folder ↗
+          </a>
+        </article>
+
+        <!-- Complete Master Repository -->
+        <article class="memo-card" style="border: 1.5px solid var(--moss-green); background: rgba(247, 244, 213, 0.9);">
+          <span class="memo-tag" style="color: var(--moss-green);">Master Drive Archive</span>
+          <h3 class="memo-title">All Works & Portfolio</h3>
+          <p class="memo-desc">Root folder containing comprehensive creative assets, draft repositories, and case studies.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/drive/folders/1j75n884bfSHHzMWgXqbOZKeGizlWCzxl" target="_blank">
+            Open Root Archive ↗
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience & Operations Section -->
+    <section>
+      <h2 class="section-title">
+        <span class="number">02</span> Background & Core Competencies
+      </h2>
+
+      <div class="sketch-table-box">
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Operations & Community Manager @ TalentOS</span>
+            <span class="exp-date">2026 – Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Architected and managed 50% of the candidate onboarding lifecycle via WhatsApp and Email.</li>
+            <li>Scaled and moderated high-engagement professional community spaces on Telegram.</li>
+            <li>Maintained structured operational systems, trackers, and databases in Notion and Google Workspace.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Creative Strategist & Multilingual Creator</span>
+            <span class="exp-date">2025 – Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Directed niche scriptwriting and localization for digital media across Burmese, English, and Korean.</li>
+            <li>Produced branded social media reels and promotional graphics using CapCut and Canva.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      ✦ "Where strategy meets empathy, and operations create impact." — Judy (Zuly Hein) ✦
+    </footer>
+  </main>
+
+</body>
+</html>
