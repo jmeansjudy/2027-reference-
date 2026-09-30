@@ -63,7 +63,7 @@
       );
     }
 
-    /* Tape / Sticky Note Accents */
+    /* Washi Tape Accent */
     .washi-tape {
       position: absolute;
       top: -12px;
@@ -80,7 +80,7 @@
     /* Header & Profile Section */
     .header-grid {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 210px 1fr;
       gap: 32px;
       align-items: center;
       border-bottom: 2px solid var(--dark-green);
@@ -177,15 +177,53 @@
     .bio-text {
       font-size: 1.15rem;
       color: var(--dark-green);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    /* Links & Buttons */
-    .contact-chips {
+    /* Core Action Stamp Row (CV & Video Highlight) */
+    .primary-action-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 14px;
+      margin-top: 10px;
+    }
+
+    .primary-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      border: 2px solid var(--dark-green);
+      box-shadow: 2px 3px 0px var(--dark-green);
+      transition: all 0.2s ease;
+    }
+
+    .primary-stamp.video-btn {
+      background-color: var(--moss-green);
+      color: var(--beige);
+    }
+
+    .primary-stamp.cv-btn {
+      background-color: var(--rosy-brown);
+      color: #FFFFFF;
+    }
+
+    .primary-stamp:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 5px 0px var(--midnight-green);
+    }
+
+    /* Social / Contact Links */
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
     }
 
     .stamp-btn {
@@ -194,20 +232,18 @@
       gap: 6px;
       text-decoration: none;
       color: var(--dark-green);
-      border: 1.5px solid var(--dark-green);
-      padding: 4px 14px;
+      border: 1px solid var(--dark-green);
+      padding: 3px 10px;
       border-radius: 4px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       background: rgba(247, 244, 213, 0.7);
       transition: all 0.2s ease;
-      box-shadow: 1px 2px 0px var(--dark-green);
+      box-shadow: 1px 1px 0px var(--dark-green);
     }
 
     .stamp-btn:hover {
       background: var(--dark-green);
       color: var(--beige);
-      transform: translate(-1px, -1px);
-      box-shadow: 2px 3px 0px var(--midnight-green);
     }
 
     /* Section Headings */
@@ -235,7 +271,7 @@
       font-size: 1.2rem;
     }
 
-    /* Portfolio Cards Grid (Journal Memo Style) */
+    /* Cards Grid */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -267,6 +303,15 @@
       height: 12px;
       background: rgba(131, 153, 88, 0.35);
       transform: rotate(2deg);
+    }
+
+    .memo-card.highlight-card {
+      border: 1.5px solid var(--rosy-brown);
+      background: rgba(247, 244, 213, 0.95);
+    }
+
+    .memo-card.highlight-card::before {
+      background: rgba(211, 150, 140, 0.5);
     }
 
     .memo-tag {
@@ -312,7 +357,7 @@
       border-color: var(--rosy-brown);
     }
 
-    /* Experience & Skill Table */
+    /* Experience Box */
     .sketch-table-box {
       background: rgba(255, 255, 255, 0.5);
       border: 1.5px dashed var(--dark-green);
@@ -360,7 +405,6 @@
       font-size: 1.05rem;
     }
 
-    /* Footer Note */
     footer {
       margin-top: 45px;
       text-align: center;
@@ -380,7 +424,7 @@
         max-width: 180px;
         margin: 0 auto;
       }
-      .badge-row, .contact-chips {
+      .badge-row, .primary-action-row, .contact-chips {
         justify-content: center;
       }
       .journal-canvas {
@@ -398,8 +442,12 @@
     <header class="header-grid">
       <div class="polaroid-frame">
         <div class="polaroid-pin"></div>
-        <!-- Profile Picture from Image 4 -->
-        <img src="1000072092.jpg" alt="Judy Illustrated Avatar" />
+        <!-- Profile Picture loaded directly from your GitHub repo -->
+        <img 
+          src="https://raw.githubusercontent.com/jmeansjudy/2027-reference-/main/fe6fe20b0df03c171fd29708e04a8dcb.jpg" 
+          alt="Judy Illustrated Avatar"
+          onerror="this.onerror=null; this.src='fe6fe20b0df03c171fd29708e04a8dcb.jpg';" 
+        />
         <div class="polaroid-caption">Judy (Zuly Hein) ✦</div>
       </div>
 
@@ -415,6 +463,17 @@
           Experienced in scaling startup community workflows, managing cross-platform communication, and crafting engaging short-form video & digital product narratives.
         </p>
 
+        <!-- Prominent CV & Intro Video Action Buttons -->
+        <div class="primary-action-row">
+          <a class="primary-stamp video-btn" href="https://drive.google.com/file/d/1aBgH-gl2ppQP6Aes8riS2bT1U94Gdn7c/view?usp=drivesdk" target="_blank">
+            ▶ Watch Video Intro
+          </a>
+          <a class="primary-stamp cv-btn" href="https://drive.google.com/file/d/1to4Zq8BbmQ6aOzfyFrzYySke53d-CbMW/view?usp=drivesdk" target="_blank">
+            📄 View Official CV / Resume
+          </a>
+        </div>
+
+        <!-- Social & Contact Links -->
         <div class="contact-chips">
           <a class="stamp-btn" href="mailto:judyjay4884@gmail.com">✉ judyjay4884@gmail.com</a>
           <a class="stamp-btn" href="https://wa.me/959760268316" target="_blank">💬 WhatsApp</a>
@@ -431,6 +490,26 @@
       </h2>
 
       <div class="cards-grid">
+        <!-- Intro Video Feature Card -->
+        <article class="memo-card highlight-card">
+          <span class="memo-tag" style="color: var(--moss-green);">Featured Clip</span>
+          <h3 class="memo-title">Introductory Video</h3>
+          <p class="memo-desc">Direct 1-minute introduction covering operational background, creative skills, and remote availability.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/file/d/1aBgH-gl2ppQP6Aes8riS2bT1U94Gdn7c/view?usp=drivesdk" target="_blank">
+            Watch Video ↗
+          </a>
+        </article>
+
+        <!-- Official CV Feature Card -->
+        <article class="memo-card highlight-card">
+          <span class="memo-tag" style="color: var(--rosy-brown);">Verified Document</span>
+          <h3 class="memo-title">Resume / CV</h3>
+          <p class="memo-desc">Detailed background in startup community management, onboarding workflows, tools proficiency, and track record.</p>
+          <a class="folder-link-btn" href="https://drive.google.com/file/d/1to4Zq8BbmQ6aOzfyFrzYySke53d-CbMW/view?usp=drivesdk" target="_blank">
+            Open PDF ↗
+          </a>
+        </article>
+
         <!-- AI Video Creation -->
         <article class="memo-card">
           <span class="memo-tag">Generative Media</span>
@@ -481,10 +560,10 @@
           </a>
         </article>
 
-        <!-- Complete Master Repository -->
+        <!-- Master Repository -->
         <article class="memo-card" style="border: 1.5px solid var(--moss-green); background: rgba(247, 244, 213, 0.9);">
-          <span class="memo-tag" style="color: var(--moss-green);">Master Drive Archive</span>
-          <h3 class="memo-title">All Works & Portfolio</h3>
+          <span class="memo-tag" style="color: var(--moss-green);">Master Archive</span>
+          <h3 class="memo-title">All Works Archive</h3>
           <p class="memo-desc">Root folder containing comprehensive creative assets, draft repositories, and case studies.</p>
           <a class="folder-link-btn" href="https://drive.google.com/drive/folders/1j75n884bfSHHzMWgXqbOZKeGizlWCzxl" target="_blank">
             Open Root Archive ↗
